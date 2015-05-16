@@ -1,5 +1,7 @@
 (function () {
-
+    //Link location of your fork so you don't have to modify so many things.
+    var fork = "UltimaTheHawke";
+		
     //Define our function responsible for extending the bot.
     function extend() {
         //If the bot hasn't been loaded properly, try again in 1 second(s).
@@ -16,7 +18,6 @@
         /*
          Extend the bot here, either by calling another function or here directly.
          Model code for a bot command:
-
          bot.commands.commandCommand = {
          command: 'cmd',
          rank: 'user/bouncer/mod/manager',
@@ -29,7 +30,6 @@
          }
          }
          }
-
          */
 
         bot.commands.baconCommand = {
@@ -55,18 +55,25 @@
     localStorage.setItem("basicBotsettings", JSON.stringify({
         botName: "FreedomBot",
         language: "english",
+        startupCap: 1, // 1-200
+        startupVolume: 0, // 0-100
+        startupEmoji: false, // true or false
+        cmdDeletion: true,
         chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
         maximumAfk: 120,
         afkRemoval: true,
         maximumDc: 60,
         bouncerPlus: true,
+        blacklistEnabled: true,
         lockdownEnabled: false,
         lockGuard: false,
         maximumLocktime: 10,
         cycleGuard: true,
         maximumCycletime: 10,
+        voteSkip: false,
+        voteSkipLimit: 10,
         timeGuard: true,
-        maximumSongLength: 7,
+        maximumSongLength: 10,
         autodisable: true,
         commandCooldown: 30,
         usercommandsEnabled: true,
@@ -79,33 +86,33 @@
             ["sound", "The song you played had bad sound quality or no sound. "],
             ["nsfw", "The song you contained was NSFW (image or sound). "],
             ["unavailable", "The song you played was not available for some users. "]
-            ["meh", "The song you played had too many mehs."]
+            ["meh", "The song you played has too many mehs."]
         ],
         afkpositionCheck: 15,
         afkRankCheck: "ambassador",
-        motdEnabled: true,
+        motdEnabled: false,
         motdInterval: 5,
         motd: "Welcome to the §TotalFreedom Hangout V2.0§! We hope you enjoy!",
         filterChat: true,
         etaRestriction: false,
         welcome: true,
         opLink: null,
-        rulesLink: "http://epicdownloadz.com/ultinest/?p=3"
+        rulesLink: "http://epicdownloadz.com/ultinest/?p=3",
         themeLink: null,
         fbLink: null,
         youtubeLink: null,
-        website: "http://totalfreedom.boards.net/"
+        website: "http://totalfreedom.boards.net/",
         intervalMessages: [],
         messageInterval: 5,
         songstats: true,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
-            OP: "https://rawgit.com/Yemasthui/basicBot-customization/master/blacklists/ExampleOPlist.json"
+            NSFW: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/ExampleNSFWlist.json",
+            OP: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/ExampleOPlist.json"
         }
     }));
 
     //Start the bot and extend it when it has loaded.
-    $.getScript('https://rawgit.com/Yemasthui/basicBot/master/basicBot.js', extend);
+    $.getScript("https://rawgit.com/Yemasthui/basicBot/master/basicBot.js", extend);
 
 }).call(this);
